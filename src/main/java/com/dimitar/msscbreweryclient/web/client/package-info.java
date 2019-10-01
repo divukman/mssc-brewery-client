@@ -1,0 +1,1 @@
+package com.dimitar.msscbreweryclient.web.client;
