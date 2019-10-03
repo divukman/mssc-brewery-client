@@ -10,12 +10,12 @@ import java.net.URI;
 import java.util.UUID;
 
 @Component
-public class CustomerClient {
+public class BreweryCustomerClient {
     private final RestTemplate restTemplate;
     private final RestClientConfig restClientConfig;
 
     @Autowired
-    public CustomerClient(RestTemplateBuilder restTemplateBuilder, RestClientConfig restClientConfig) {
+    public BreweryCustomerClient(RestTemplateBuilder restTemplateBuilder, RestClientConfig restClientConfig) {
         this.restTemplate = restTemplateBuilder.build();
         this.restClientConfig = restClientConfig;
     }

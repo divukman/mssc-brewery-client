@@ -11,14 +11,14 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class CustomerClientTest {
+class BreweryCustomerClientTest {
 
     @Autowired
-    CustomerClient customerClient;
+    BreweryCustomerClient breweryCustomerClient;
 
     @Test
     void getCustomerById() {
-        final CustomerDto customerDto = customerClient.getCustomerById(UUID.randomUUID());
+        final CustomerDto customerDto = breweryCustomerClient.getCustomerById(UUID.randomUUID());
         assertNotNull(customerDto);
     }
 
@@ -29,7 +29,7 @@ class CustomerClientTest {
                 .name("John")
                 .build();
 
-        final URI uri = customerClient.createCustomer(customerDto);
+        final URI uri = breweryCustomerClient.createCustomer(customerDto);
         assertNotNull(uri);
     }
 
@@ -40,11 +40,11 @@ class CustomerClientTest {
                 .name("John")
                 .build();
 
-        customerClient.updateCustomer(customerDto.getId(), customerDto);
+        breweryCustomerClient.updateCustomer(customerDto.getId(), customerDto);
     }
 
     @Test
     void deleteCustomer() {
-        customerClient.deleteCustomer(UUID.randomUUID());
+        breweryCustomerClient.deleteCustomer(UUID.randomUUID());
     }
 }

@@ -11,14 +11,14 @@ import java.util.UUID;
 import static org.junit.jupiter.api.Assertions.*;
 
 @SpringBootTest
-class BreweryClientTest {
+class BreweryBeerClientTest {
 
     @Autowired
-    BreweryClient breweryClient;
+    BreweryBeerClient breweryBeerClient;
 
     @Test
     void getBeerById() {
-        BeerDto beerDto = breweryClient.getBeerById(UUID.randomUUID());
+        BeerDto beerDto = breweryBeerClient.getBeerById(UUID.randomUUID());
         assertNotNull(beerDto);
     }
 
@@ -29,7 +29,7 @@ class BreweryClientTest {
                 .id(UUID.randomUUID())
                 .build();
 
-        URI uri = breweryClient.saveNewBeer(beerDto);
+        URI uri = breweryBeerClient.saveNewBeer(beerDto);
         assertNotNull(uri);
     }
 
@@ -40,11 +40,11 @@ class BreweryClientTest {
                 .id(UUID.randomUUID())
                 .build();
 
-        breweryClient.updateBeer(beerDto.getId(), beerDto);
+        breweryBeerClient.updateBeer(beerDto.getId(), beerDto);
     }
 
     @Test
     void deleteBeer() {
-        breweryClient.deleteBeer(UUID.randomUUID());
+        breweryBeerClient.deleteBeer(UUID.randomUUID());
     }
 }
